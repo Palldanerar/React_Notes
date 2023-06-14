@@ -1,17 +1,35 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { INote } from "../interface/INote";
+import { useState } from "react";
 
 const EditNote = ({ notes, setNotes }: any) => {
   const { id } = useParams();
   const note = notes.find((item: any) => item.id == id);
   const navigate = useNavigate();
+  const [newTitle, setNewTitle] = useState("");
+  const [newText, setNewText] = useState("");
 
   function deleteNode() {
     setNotes(notes.filter((item: any) => item.id != id));
-
     navigate("/");
+  }
+
+  function saveNode() {
+    setNotes(notes.filter((item: any) => item.id != id));
+
+    if (newTitle && newText) {
+      setNotes((prevNote: any) => [
+        {
+          id: Math.floor(Math.random() * 10000),
+          title: newTitle,
+          text: newText,
+        },
+        ...prevNote,
+      ]);
+
+      navigate("/");
+    }
   }
 
   return (
@@ -23,7 +41,12 @@ const EditNote = ({ notes, setNotes }: any) => {
         >
           <IoIosArrowBack />
         </Link>
-        <button className="btn lg primary">Save</button>
+        <button
+          className="btn lg primary"
+          onClick={saveNode}
+        >
+          Save
+        </button>
         <button
           className="btn danger"
           onClick={deleteNode}
@@ -35,12 +58,14 @@ const EditNote = ({ notes, setNotes }: any) => {
         <input
           type="text"
           placeholder="Title"
-          value={note.title}
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
           autoFocus
         />
         <textarea
           rows={10}
-          value={note.text}
+          value={newText}
+          onChange={(e) => setNewText(e.target.value)}
           placeholder="Node details..."
         ></textarea>
       </form>
