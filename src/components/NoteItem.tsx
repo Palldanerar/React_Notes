@@ -9,7 +9,7 @@ interface NoteItemProps {
 const NoteItem = ({id, title, text} : NoteItemProps ) => {
   return (
     <div>
-        <Link to={`/edit/:${id}`} className="note" >
+        <Link to={`/edit/${id}`} className="note" >
             <h4>{title}</h4>
             <p>{text}</p>
         </Link>

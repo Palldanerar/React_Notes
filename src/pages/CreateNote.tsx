@@ -10,7 +10,7 @@ const CreateNote = ({setNotes}: any) => {
   function createNotes() {
     if (title && text) {
       setNotes(prevNote => [{
-        id: Math.floor(Math.random() * 2),
+        id: Math.floor(Math.random() * 10000),
         title: title,
         text: text
       }, ...prevNote])
