@@ -1,10 +1,14 @@
 import {CiSearch} from 'react-icons/ci'
-import {notes} from "../db"
 import NoteItem from '../components/NoteItem'
 import {Link} from "react-router-dom"
 import {BsPlusLg} from "react-icons/bs"
+import { INote } from '../interface/INote'
 
-const Notes = () => {
+interface NotesProps {
+    notes: INote[]
+}
+
+const Notes = ( {notes} : NotesProps) => {
   return (
     <section>
         <header className="notes__header">

@@ -1,6 +1,6 @@
 import { INote } from "./interface/INote";
 
-export const notes: INote[] = [
+export const notesDB: INote[] = [
     {
         id: 1,
         title: "Выкинуть мусор",
