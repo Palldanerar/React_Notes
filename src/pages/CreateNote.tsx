@@ -1,6 +1,6 @@
 const CreateNote = () => {
   return (
-    <div>CreateNote</div>
+    <div>Create</div>
   )
 }
 
