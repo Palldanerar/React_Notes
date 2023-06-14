@@ -1,13 +1,18 @@
+import {Link} from "react-router-dom"
+
 interface NoteItemProps {
+    id: number,
     title: string,
     text: string
 }
 
-const NoteItem = ({title, text} : NoteItemProps ) => {
+const NoteItem = ({id, title, text} : NoteItemProps ) => {
   return (
     <div>
-        <h1>{title}</h1>
-        <h2>{text}</h2>
+        <Link to={`/edit/:${id}`} className="note" >
+            <h4>{title}</h4>
+            <p>{text}</p>
+        </Link>
     </div>
   )
 }

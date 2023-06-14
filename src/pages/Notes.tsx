@@ -14,7 +14,7 @@ const Notes = () => {
         </header>
         <div className="notes__container">
             {notes.map(note => {
-                return <NoteItem key={note.id} title={note.title} text={note.text} />
+                return <NoteItem key={note.id} id={note.id} title={note.title} text={note.text} />
             })}
         </div>
         <Link to="/create" className='btn add__btn'><BsPlusLg /></Link>
